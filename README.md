@@ -1,4 +1,6 @@
-# BattlegroundsHelper
+# Battlegrounds Helper
+
+This is a small project for calculating the chance to get certain cards while rolling or discovering in Hearthstone battlegrounds
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
 
