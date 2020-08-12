@@ -3,9 +3,16 @@
   <a>Fill in information below to calculate percentage to get a certain card</a>
 </div>
 <br>
-<form>
-  <mat-form-field appearance="standard" style="under: lightgray">
-    <mat-label>Input</mat-label>
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Card</mat-label>
     <input matInput>
   </mat-form-field>
-</form>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Current Tavern Tier</mat-label>
+    <input matInput name="name"  type="number" min="1" max="6" [formControl]="tavernTierControl">
+    <mat-error *ngIf=tavernTierControl>Must be between 1 and 6</mat-error>
+  </mat-form-field>
+
+</div>
