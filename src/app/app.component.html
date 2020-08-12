@@ -2,19 +2,35 @@
   <h1>Welcome to Battlegrounds helper</h1>
   <a>Fill in information below to calculate percentage to get a certain card</a>
 </div>
-<br>
 <div>
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="standard">
     <mat-label>Card</mat-label>
     <input matInput>
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="standard">
     <mat-label>Current Tavern Tier</mat-label>
-    <input matInput name="name"  type="number" min="1" max="6" [formControl]="tavernTierControl">
+    <input matInput type="number" min="1" max="6" [formControl]="tavernTierControl">
     <mat-error *ngIf=tavernTierControl>Must be between 1 and 6</mat-error>
   </mat-form-field>
 
-  <br>
+  <div>
+    <label>Mode: </label>
+    <mat-radio-group color="primary"
+                     [formControl]="modeControl"
+                     [(ngModel)]="mode">
+      <mat-radio-button value="roll">Roll</mat-radio-button>
+      <mat-radio-button value="discover">Discover</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div *ngIf="mode == 'roll'">
+    <mat-form-field appearance="standard">
+      <mat-label>Amounts of rolls</mat-label>
+      <input matInput type="number" min="1" [formControl]="rollControl">
+      <mat-error *ngIf=rollControl>Must be more than 0</mat-error>
+    </mat-form-field>
+  </div>
+
   <button mat-raised-button color="primary">Calculate</button>
 </div>
